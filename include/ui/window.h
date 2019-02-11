@@ -9,9 +9,9 @@
 #define ui_window_h
 
 #include "common.h"
+#include "geometric.h"
 
-typedef struct UIWindow    UIWindow;
-typedef struct UIGLContext UIGLContext;
+typedef struct UIWindow UIWindow;
 
 typedef enum UIWindowSurface {
   kUIWindowSurfaceDefault = 0,
@@ -29,31 +29,15 @@ typedef enum UIWindowStyle {
   kWindowStyleCloseButton    = 1 << 3,
   kWindowStyleMinimizeButton = 1 << 4,
   kWindowStyleMaximizeButton = 1 << 5,
-
   kWindowStyleAllButtons     = kWindowStyleCloseButton
                              | kWindowStyleMinimizeButton
                              | kWindowStyleMaximizeButton
 } UIWindowStyle;
 
-typedef enum UIWindowCloseBehavior {
-  kWindowCloseBehavior_None,
-  kWindowCloseBehavior_AppShouldExit
-} UIWindowCloseBehavior;
-
-typedef struct UIPoint {
-  float x;
-  float y;
-} UIPoint;
-
-typedef struct UISize {
-  float width;
-  float height;
-} UISize;
-
-typedef struct UIRect {
-  UIPoint origin;
-  UISize  size;
-} UIRect;
+typedef enum UICloseBehavior {
+  kCloseBehaviorNone = 0,
+  kCloseBehaviorExit = 1
+} UICloseBehavior;
 
 typedef struct UIWindowOptions {
   UIWindowStyle   style;
@@ -109,11 +93,11 @@ void
 uiSetWindowFrame(UIWindow * __restrict wnd, UIRect frame, bool animate);
 
 UI_EXPORT
-UIWindowCloseBehavior
+UICloseBehavior
 uiGetCloseBehavior(UIWindow * __restrict wnd);
 
 UI_EXPORT
 void
-uiSetCloseBehavior(UIWindow * __restrict wnd, UIWindowCloseBehavior behavior);
+uiSetCloseBehavior(UIWindow * __restrict wnd, UICloseBehavior behavior);
 
 #endif /* ui_window_h */

@@ -54,7 +54,7 @@
 #pragma mark - Window Delegate
 
 - (void) windowWillClose:(NSNotification *)notification {
-  if (self.wnd->closeBehavior == kWindowCloseBehavior_AppShouldExit) {
+  if (self.wnd->closeBehavior == kCloseBehaviorExit) {
     [[NSApplication sharedApplication] terminate: nil];
   }
 }

@@ -85,7 +85,7 @@ uiCreateWindow(UISize size, UIWindowOptions * __restrict options) {
   wnd->size          = size;
   wnd->style         = style;
   wnd->native        = nsWnd;
-  wnd->closeBehavior = kWindowCloseBehavior_AppShouldExit; /* default */
+  wnd->closeBehavior = kCloseBehaviorExit; /* default */
   nsWnd.wnd          = wnd;
 
   return wnd;
@@ -217,13 +217,13 @@ uiSetWindowFrame(UIWindow * __restrict wnd, UIRect frame, bool animate) {
 }
 
 UI_EXPORT
-UIWindowCloseBehavior
+UICloseBehavior
 uiGetCloseBehavior(UIWindow * __restrict wnd) {
   return wnd->closeBehavior;
 }
 
 UI_EXPORT
 void
-uiSetCloseBehavior(UIWindow * __restrict wnd, UIWindowCloseBehavior behavior) {
+uiSetCloseBehavior(UIWindow * __restrict wnd, UICloseBehavior behavior) {
   wnd->closeBehavior = behavior;
 }

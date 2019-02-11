@@ -11,12 +11,12 @@
 #include "../../include/ui/window.h"
 
 struct UIWindow {
-  UISize                size;
-  int                   style;
-  UIWindowCloseBehavior closeBehavior;
-  void                  *native;
-  bool                   showed;
-  bool                   fullscreen;
+  void           *native;
+  UISize          size;
+  int             style;
+  UICloseBehavior closeBehavior;
+  bool            showed;
+  bool            fullscreen;
 };
 
 #endif /* impl_window_h */
