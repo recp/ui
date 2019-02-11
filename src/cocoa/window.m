@@ -9,6 +9,8 @@
 #include "../common.h"
 #include "CocoaWindow.h"
 
+#include "GLView.h"
+
 NSUInteger
 wndStyleToCocoa(int style) {
   NSUInteger cocoaWS;
@@ -49,6 +51,20 @@ wndStyleToCocoa(int style) {
   return cocoaWS;
 }
 
+void
+uiSetOpenGLSurface(UIWindow * __restrict wnd) {
+  GLView *glview;
+  NSWindow *nsWnd;
+
+  nsWnd = wnd->native;
+
+  glview = [[GLView alloc] initWithFrame: nsWnd.contentView.bounds];
+  while (nsWnd.contentView.retainCount > 1)
+    [nsWnd.contentView release];
+
+  [nsWnd setContentView: glview];
+}
+
 UI_EXPORT
 UIWindow*
 uiCreateWindow(UISize size, UIWindowOptions * __restrict options) {
@@ -87,6 +103,14 @@ uiCreateWindow(UISize size, UIWindowOptions * __restrict options) {
   wnd->native        = nsWnd;
   wnd->closeBehavior = kCloseBehaviorExit; /* default */
   nsWnd.wnd          = wnd;
+
+  switch (options->surface) {
+    case kUIWindowSurfaceOpenGL:
+      uiSetOpenGLSurface(wnd);
+      break;
+    default:
+      break;
+  }
 
   return wnd;
 }

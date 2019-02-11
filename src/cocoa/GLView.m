@@ -233,8 +233,7 @@ displink_refresh(CVDisplayLinkRef    CV_NONNULL  displayLink,
   [self update];
   [self.delegate reshape];
 
-  if (self.started)
-    [self renderOnce];
+  [self renderOnce];
 }
 
 #pragma mark -
@@ -242,8 +241,7 @@ displink_refresh(CVDisplayLinkRef    CV_NONNULL  displayLink,
 - (void)drawRect:(NSRect)dirtyRect {
   [super drawRect: dirtyRect]; /* TODO: */
 
-  if (self.started)
-    [self renderOnce];
+  [self renderOnce];
 }
 
 - (void) start {
@@ -282,10 +280,6 @@ displink_refresh(CVDisplayLinkRef    CV_NONNULL  displayLink,
                  CVOptionFlags                   flagsIn,
                  CVOptionFlags     * CV_NONNULL  flagsOut,
                  void              * CV_NULLABLE displayLinkContext) {
-  /* TODO: get rid of this, sync threads... */
-  dispatch_sync(dispatch_get_main_queue(), ^{
-    [(GLView *)displayLinkContext renderOnce];
-  });
-
+  [(GLView *)displayLinkContext renderOnce];
   return kCVReturnSuccess;
 }

@@ -9,10 +9,10 @@
 
 @implementation CocoaWindow
 
-- (instancetype)initWithContentRect:(NSRect)contentRect
-                          styleMask:(NSWindowStyleMask)style
-                            backing:(NSBackingStoreType)backingStoreType
-                              defer:(BOOL)flag screen:(NSScreen *)screen {
+- (instancetype)initWithContentRect: (NSRect)contentRect
+                          styleMask: (NSWindowStyleMask)style
+                            backing: (NSBackingStoreType)backingStoreType
+                              defer: (BOOL)flag screen:(NSScreen *)screen {
   self = [super initWithContentRect: contentRect
                           styleMask: style
                             backing: backingStoreType defer: flag
@@ -24,10 +24,10 @@
   return self;
 }
 
-- (instancetype)initWithContentRect:(NSRect)contentRect
-                          styleMask:(NSWindowStyleMask)style
-                            backing:(NSBackingStoreType)backingStoreType
-                              defer:(BOOL)flag {
+- (instancetype)initWithContentRect: (NSRect)contentRect
+                          styleMask: (NSWindowStyleMask)style
+                            backing: (NSBackingStoreType)backingStoreType
+                              defer: (BOOL)flag {
   self = [super initWithContentRect: contentRect
                           styleMask: style
                             backing: backingStoreType
