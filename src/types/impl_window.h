@@ -15,7 +15,8 @@ struct UIWindow {
   int                   style;
   UIWindowCloseBehavior closeBehavior;
   void                  *native;
-  BOOL                   showed;
+  bool                   showed;
+  bool                   fullscreen;
 };
 
 #endif /* impl_window_h */

@@ -6,10 +6,13 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#include "../types/impl_window.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CocoaWindow : NSWindow
+@interface CocoaWindow : NSWindow <NSWindowDelegate>
+
+@property (nonatomic, assign) UIWindow *wnd;
 
 @end
 

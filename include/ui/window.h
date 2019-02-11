@@ -70,6 +70,50 @@ uiShowWindow(UIWindow * __restrict wnd);
 
 UI_EXPORT
 void
+uiHideWindow(UIWindow * __restrict wnd);
+
+UI_EXPORT
+void
 uiSetWindowStyle(UIWindow * __restrict wnd, UIWindowStyle style);
+
+UI_EXPORT
+const char*
+uiWindowTitle(UIWindow * __restrict wnd);
+
+UI_EXPORT
+void
+uiSetWindowTitle(UIWindow * __restrict wnd, const char * __restrict title);
+
+UI_EXPORT
+void
+uiCenterWindow(UIWindow * __restrict wnd);
+
+UI_EXPORT
+bool
+uiIsFullScreen(UIWindow * __restrict wnd);
+
+UI_EXPORT
+void
+uiEnterFullScreen(UIWindow * __restrict wnd);
+
+UI_EXPORT
+void
+uiExitFullScreen(UIWindow * __restrict wnd);
+
+UI_EXPORT
+UIRect
+uiGetWindowFrame(UIWindow * __restrict wnd);
+
+UI_EXPORT
+void
+uiSetWindowFrame(UIWindow * __restrict wnd, UIRect frame, bool animate);
+
+UI_EXPORT
+UIWindowCloseBehavior
+uiGetCloseBehavior(UIWindow * __restrict wnd);
+
+UI_EXPORT
+void
+uiSetCloseBehavior(UIWindow * __restrict wnd, UIWindowCloseBehavior behavior);
 
 #endif /* ui_window_h */

@@ -10,10 +10,11 @@
 
 #define _USE_MATH_DEFINES /* for windows */
 
+#include <stdlib.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include <math.h>
 #include <float.h>
-#include <stdlib.h>
 #include <string.h>
 
 #if defined(_MSC_VER)
