@@ -11,6 +11,5 @@
 #include "common.h"
 #include "window.h"
 #include "app.h"
-#include "opengl.h"
 
 #endif /* ui_h */

@@ -56,13 +56,11 @@ uiSetOpenGLSurface(UIWindow * __restrict wnd) {
   GLView *glview;
   NSWindow *nsWnd;
 
-  nsWnd = wnd->native;
-
+  nsWnd  = wnd->native;
   glview = [[GLView alloc] initWithFrame: nsWnd.contentView.bounds];
-  while (nsWnd.contentView.retainCount > 1)
-    [nsWnd.contentView release];
 
   [nsWnd setContentView: glview];
+  [glview release];
 }
 
 UI_EXPORT

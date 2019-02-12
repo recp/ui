@@ -257,9 +257,8 @@ displink_refresh(CVDisplayLinkRef    CV_NONNULL  displayLink,
 }
 
 - (void)dealloc {
-  [super dealloc];
-
   [[NSNotificationCenter defaultCenter] removeObserver: self];
+
   [NSOpenGLContext clearCurrentContext];
   [self clearGLContext];
 
@@ -268,6 +267,8 @@ displink_refresh(CVDisplayLinkRef    CV_NONNULL  displayLink,
 
   m_openGLContext = nil;
   m_pixelFormat   = nil;
+
+  [super dealloc];
 }
 
 @end
